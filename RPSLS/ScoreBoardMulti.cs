@@ -27,11 +27,11 @@ namespace RPSLS
             Console.WriteLine("\r\n" + "--Scores--" + "\r\n" + playerOne + ": " + this.playerOneScore + "\r\n" + "Computer: " + playerTwoScore);
             if (playerOneScore == 2)
             {
-                this.DisplayWinner("\r\n" + playerOne + "Is The Winner!");
+                this.DisplayWinner("playerOne", playerOne);
             }
             else if (playerTwoScore == 2)
             {
-                this.DisplayWinner("\r\n" + playerTwo + "Is The Winner!");
+                this.DisplayWinner("playerTwo", playerTwo);
             }
         }
 
@@ -165,16 +165,18 @@ namespace RPSLS
             playerTwoScore += 1;
         }
 
-        public void DisplayWinner(string winner)
+        public void DisplayWinner(string winner, string winnerName)
         {
             if (winner == "playerOne")
             {
-                Console.WriteLine("\r\n" + "Congratulations, " + PlayerOne + ", You've Beat The Computer!");
+                Console.WriteLine("\r\n" + "Congratulations, " + winnerName + ", You've Won!");
             }
-            else
-            {
-                Console.WriteLine("\r\n" + "Congratulations, " + PlayerTwo + ", You've Beat The Computer!");
-            }
+        }
+
+        public void ShowMoves(string playerOneMove, string playerTwoMove, string playerOneName, string playerTwoName)
+        {
+            Console.WriteLine("\r\n" + "--Moves--" + "\r\n" + playerOneName + ": " + playerOneMove);
+            Console.WriteLine("\r\n" + playerTwoName + ": " + playerTwoMove);
         }
     }
 }

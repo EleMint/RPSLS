@@ -11,8 +11,8 @@ namespace RPSLS
         //Member Variables (HAS A)
         public string playerOneName;
         public string playerTwoName;
-        public string playerMove;
-        public string computerMove;
+        public string playerOneMove;
+        public string playerTwoMove;
         //Constructor
         public TwoPlayerGame()
         {
@@ -24,19 +24,22 @@ namespace RPSLS
             PlayerOne playerOne = new PlayerOne(playerOneName);
             PlayerTwo playerTwo = new PlayerTwo(playerTwoName);
             ScoreBoardMulti scoreBoard = new ScoreBoardMulti();
-            Console.WriteLine("\r\n" + "Hello, " + playerOne.name + "!");
-            scoreBoard.DisplayScore(playerOne.name);
+            scoreBoard.DisplayScore(playerOne.name, playerTwo.name);
             Console.WriteLine("\r\n" + "The Scores Are Set To 0. Let's Begin!");
             do
             {
-                playerMove = playerOne.MakeMove();
-                computerMove = computer.MakeMove();
-                computer.ShowMove(computerMove);
-                scoreBoard.DecideRound(playerMove, computerMove);
-                scoreBoard.DisplayScore(playerOne.name);
+                Console.WriteLine("\r\n" + playerOne.name + ", It's Your Move");
+                playerOneMove = playerOne.MakeMove();
+                Console.Clear();
+                Console.WriteLine("\r\n" + playerTwo.name + ", It's Your Move");
+                playerTwoMove = playerTwo.MakeMove();
+                Console.Clear();
+                scoreBoard.ShowMoves(playerOneMove, playerTwoMove, playerOne.name, playerTwo.name);
+                scoreBoard.DecideRound(playerOneMove, playerTwoMove);
+                scoreBoard.DisplayScore(playerOne.name, playerTwo.name);
                 Console.ReadLine();
             }
-            while (scoreBoard.playerScore < 2 && scoreBoard.computerScore < 2);
+            while (scoreBoard.playerOneScore < 2 && scoreBoard.playerTwoScore < 2);
         }
     }
 }

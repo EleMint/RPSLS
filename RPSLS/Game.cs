@@ -8,8 +8,6 @@ namespace RPSLS
 {
     class Game
     {
-        //Member Variables (HAS A)
-
         //Constructor
         public Game()
         {
@@ -24,13 +22,9 @@ namespace RPSLS
                     TwoPlayerGame twoPlayerGame = new TwoPlayerGame();
                     break;
                 default:
-                    Console.WriteLine("Please Enter Either A '1' or '2'.");
                     // TODO: Reinitiate Game()
                     break;
             }
         }
-
-        //Member Method (CAN DO)
-        
     }
 }
