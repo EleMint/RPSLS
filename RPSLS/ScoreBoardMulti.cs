@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class ScoreBoard
+    class ScoreBoardMulti
     {
         //Member Variables (HAS A)
         public int playerOneScore;
         public int playerTwoScore;
 
         //Constructor
-        public ScoreBoard()
+        public ScoreBoardMulti()
         {
             this.playerOneScore = 0;
             this.playerTwoScore = 0;
         }
 
         //Member Methods (CAN DO)
-        public void DisplayScore()
+        public void DisplayScore(string playerOne)
         {
-            Console.WriteLine("Player One Score: " + this.playerOneScore + "\r\n" + "Player Two Score: " + playerTwoScore + "\r\n");
+            Console.WriteLine(playerOne + ": " + this.playerOneScore + "\r\n" + "Player Two Score: " + playerTwoScore + "\r\n");
         }
         public void AddPlayerOnePoint()
         {

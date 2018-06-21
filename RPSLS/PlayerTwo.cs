@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class PlayerTwo
+    class PlayerTwo : Players
     {
         //Member Variables (HAS A)
 
         //Constructor
-
+        public PlayerTwo(string name)
+        {
+            this.name = name;
+        }
         //Member Methods (CAN DO)
     }
 }

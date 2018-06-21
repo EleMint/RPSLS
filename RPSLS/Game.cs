@@ -14,14 +14,18 @@ namespace RPSLS
         public Game()
         {
             Console.WriteLine("Rock, Paper, Scissors, Lizard, Spock");
-            Console.WriteLine("Press '1' for Two-Player or '2' for Single-Player");
+            Console.WriteLine("Press '1' for Single-Player or '2' for Multi-Player");
             switch (Console.ReadLine())
             {
-                case "2":
+                case "1":
                     OnePlayerGame onePlayerGame = new OnePlayerGame();
                     break;
-                case "1":
+                case "2":
                     TwoPlayerGame twoPlayerGame = new TwoPlayerGame();
+                    break;
+                default:
+                    Console.WriteLine("Please Enter Either A '1' or '2'.");
+                    // TODO: Reinitiate Game()
                     break;
             }
         }

@@ -16,7 +16,7 @@ namespace RPSLS
             switch(Console.ReadLine().ToLower())
             {
                 case "yes":
-                    //Restart Game
+                    // TODO: Restart Game
                     break;
                 case "no":
                     Console.WriteLine("\r\n" + "Thanks For Playing!");

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class PlayerOne
+    class PlayerOne : Players
     {
         //Member Variables (HAS A)
-        public string name;
 
         //Constructor
         public PlayerOne(string name)
