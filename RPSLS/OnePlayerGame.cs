@@ -11,6 +11,7 @@ namespace RPSLS
         //Member Variables (HAS A)
         public string playerName;
         public string playerMove;
+        public string computerMove;
         //Constructor
         public OnePlayerGame()
         {
@@ -18,15 +19,21 @@ namespace RPSLS
             Console.WriteLine("\r\n" + "Please Enter Your Name:");
             playerName = Console.ReadLine();
             PlayerOne playerOne = new PlayerOne(playerName);
+            Computer computer = new Computer();
             ScoreBoardSingle scoreBoard = new ScoreBoardSingle();
             Console.WriteLine("\r\n" + "Hello, " + playerOne.name + "!");
             scoreBoard.DisplayScore(playerOne.name);
             Console.WriteLine("\r\n" + "The Scores Are Set To 0. Let's Begin!");
-            playerMove = playerOne.MakeMove();
-
-            
-            Console.ReadLine();
+            do
+            {
+                playerMove = playerOne.MakeMove();
+                computerMove = computer.MakeMove();
+                computer.ShowMove(computerMove);
+                scoreBoard.DecideRound(playerMove, computerMove);
+                scoreBoard.DisplayScore(playerOne.name);
+                Console.ReadLine();
+            }
+            while (scoreBoard.playerScore < 2 && scoreBoard.computerScore < 2);
         }
-        //Member Methods (CAN DO)
     }
 }

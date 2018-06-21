@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Players
+    abstract class Players
     {
         // Member Variables (HAS A)
         public string name;
         public string move;
-        // Constructor
-        public Players()
-        {
-
-        }
+        public string secondTry;
+        public int computerPlayerMove;
+       
         // Member Methods (CAN DO)
         
         public string MakeMove()
@@ -28,7 +26,33 @@ namespace RPSLS
             }
             else
             {
-                return "null";
+                Console.WriteLine("\r\n" + "Please Try Again.");
+                secondTry = Console.ReadLine().ToLower();
+                if(secondTry == "rock" || secondTry == "paper" || secondTry == "scissors" || secondTry == "lizard" || secondTry == "spock")
+                {
+                    return secondTry;
+                }
+                else
+                {
+                    Console.WriteLine("\r\n" + "Your Move Has Been Made For You");
+                    Random myRandomNumber = new Random();
+                    int myNumber = myRandomNumber.Next(1, 5);
+                    switch (myNumber)
+                    {
+                        case 1:
+                            return "rock";
+                        case 2:
+                            return "paper";
+                        case 3:
+                            return "scissors";
+                        case 4:
+                            return "lizard";
+                        case 5:
+                            return "spock";
+                        default:
+                            return "null";
+                    }
+                }
             }
         }
     }
